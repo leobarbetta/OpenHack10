@@ -69,7 +69,7 @@ namespace OpenHackTeam10.Controllers
                 }
             };
 
-            client.CreateNamespacedPod(teste, "default");
+            client.CreateNamespacedPod(pod, "default");
 
             return Ok();
         }
