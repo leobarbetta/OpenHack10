@@ -13,8 +13,7 @@ namespace OpenHackTeam10.Controllers
         [HttpGet]
         public IActionResult Get()
         {
-            var config = KubernetesClientConfiguration.BuildConfigFromConfigFile();
-            IKubernetes client = new Kubernetes(config);
+            IKubernetes client = GetKubeConfig.GetKubernetes();
 
             V1PodList list = client.ListNamespacedPod("default");
 
@@ -41,8 +40,7 @@ namespace OpenHackTeam10.Controllers
         [HttpPost]
         public IActionResult Post()
         {
-            var config = KubernetesClientConfiguration.BuildConfigFromConfigFile();
-            IKubernetes client = new Kubernetes(config);
+            IKubernetes client = GetKubeConfig.GetKubernetes();
             V1PodList list = client.ListNamespacedPod("default");
 
             var pod = new V1Pod
@@ -77,8 +75,7 @@ namespace OpenHackTeam10.Controllers
         [HttpDelete]
         public IActionResult Delete()
         {
-            var config = KubernetesClientConfiguration.BuildConfigFromConfigFile();
-            IKubernetes client = new Kubernetes(config);
+            IKubernetes client = GetKubeConfig.GetKubernetes();
             V1PodList list = client.ListNamespacedPod("default");
 
             var testeDelete = new V1DeleteOptions();
@@ -87,6 +84,7 @@ namespace OpenHackTeam10.Controllers
             return Ok();
         }
     }
+
 
     public class Endpoints
     {

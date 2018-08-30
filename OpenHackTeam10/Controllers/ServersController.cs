@@ -12,8 +12,7 @@ namespace OpenHackTeam10.Controllers
         [HttpGet]
         public IActionResult Get()
         {
-            var config = KubernetesClientConfiguration.BuildConfigFromConfigFile();
-            IKubernetes client = new Kubernetes(config);
+            IKubernetes client = GetKubeConfig.GetKubernetes();
 
             var serversRest = client.ListNamespacedService("default");
 
