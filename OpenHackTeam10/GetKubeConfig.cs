@@ -43,7 +43,7 @@ namespace OpenHackTeam10
 
             //FileInfo configFile = new FileInfo(Path.Combine(Directory.GetCurrentDirectory(), @"wwwroot\config"));
 
-            var config = KubernetesClientConfiguration.BuildConfigFromConfigFile(configFile);
+            var config = KubernetesClientConfiguration.BuildConfigFromConfigFile(streamConfig);
             return new Kubernetes(config);
         }
     }

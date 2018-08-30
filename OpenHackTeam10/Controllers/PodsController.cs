@@ -23,11 +23,11 @@ namespace OpenHackTeam10.Controllers
             {
                 pods.Add(new RootObject
                 {
-                    Name = item.Metadata.Name,
+                    Name = item?.Metadata?.Name,
                     Endpoints = new Endpoints
                     {
-                        Minecraft = $"{item.Status.PodIP}: {item.Spec.Containers.FirstOrDefault().Ports.FirstOrDefault(p => p.ContainerPort == 25565).ContainerPort}",
-                        Rcon = $"{item.Status.PodIP}: {item.Spec.Containers.FirstOrDefault().Ports.FirstOrDefault(p => p.ContainerPort == 25575).ContainerPort}"
+                        Minecraft = $"{item?.Status?.PodIP}: {item?.Spec?.Containers?.FirstOrDefault().Ports?.FirstOrDefault(p => p.ContainerPort == 25565).ContainerPort}",
+                        Rcon = $"{item?.Status?.PodIP}: {item?.Spec?.Containers?.FirstOrDefault().Ports?.FirstOrDefault(p => p.ContainerPort == 25575).ContainerPort}"
                     }
                 });
             }
